@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>DSC 106 Project 2</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Kevin Huang</strong> — <em>tih009@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Defending Civilian Rights: NYC becomes stricter with police officer behavior as the CCRB (Civilian Complaint Review Board ) gives out more substantiation towards police officer for misconduct during law enforcement</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="img/for.png" alt="Concentric ring plot showing deceptive 5× weighting of substantiated proportion, with blue rings increasing over time" />
+          <figcaption>The proportion of substantiated (found illegal action by officer) dispositions of complaints increases dramatically over the years, and is far more than exonerated cases (officer's conduct fully legal), that means that in more and more of the cases, the board (appointed by NYC city council) found concrete evidence and determined that the officer used illegal means to enforce law.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+          <ul>
+            <li><strong>5-year Binning, Score: 1</strong> &mdash; Aggregating data into 5-year periods smooths year-to-year volatility and highlights long-term trends. This grouping is earnest, giving a clear overview without omitting any periods.</li>
+            <li><strong>Deceptive Weighting, Score: -2</strong> &mdash; Multiplying substantiated counts by 5 before normalization makes the blue slices appear much larger than their true share. This is fully deceptive, as it alters the perceived ratio in favor of substantiation.</li>
+            <li><strong>Concentric Donuts, Score: -1</strong> &mdash; Using nested rings draws attention inward and conveys a sense of progression. While visually appealing, it makes direct area comparisons difficult, subtly amplifying the illusion of growth.</li>
+            <li><strong>Hiding Key Concept, Score: -1.5</strong> &mdash; Purposedly ignore the "Unsubstantiated" category, where there is not enough evidence to prove whether the police officer's action was legal or illegal (which consists of the majority). Instead, the chart only looks at officer guilty (blue) or unguility (orange). </li>
+            <li><strong>Actual % Labels, Score: 1</strong> &mdash; I overlaid the true substantiated percentages atop each wedge. This balances the deception in slice sizing with honest numeric annotation, earning a moderately earnest score.</li>
+          </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="img/against.png" alt="100%-stacked bar chart of substantiated vs not substantiated by 5-year period showing stable proportions" />
+          <figcaption>Stacked bar chart of proportion substantiated (blue) vs not substantiated (red) in each 5-year period, showing that substantiation remains roughly stable rather than steadily rising. This shows that CCBR shows minimal change over the years.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+          <ul>
+            <li><strong>5-year Binning, Score: 1</strong> &mdash; Same grouping as the ring chart ensures a fair comparison. This consistent, earnest choice aids interpretation across both visualizations.</li>
+            <li><strong>100% Normalization, Score: 2</strong> &mdash; Each bar sums to 100%, clearly showing the true share of substantiated outcomes. This is fully earnest, providing accurate context.</li>
+            <li><strong>Color Coding, Score: 0.5</strong> &mdash; Blue for substantiated and red for not substantiated leverages intuitive associations. The colors are clear without being misleading.</li>
+            <li><strong>Stacked Bars, Score: 1</strong> &mdash; A stacked layout lets viewers compare relative proportions directly. This standard, earnest encoding highlights stability in substantiation rates.</li>
+            <li><strong>Complete Context, Score: 2</strong> &mdash; Including all buckets from 1986 to 2019 prevents cherry-picking. This fully earnest decision ensures no periods are hidden.</li>
+          </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+      </section>
+    </main>
+  </body>
+</html>
