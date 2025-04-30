@@ -158,17 +158,17 @@
         <h3>FOR the Proposition</h3>
 
         <figure>
-          <img src="img/for.png" alt="Concentric ring plot showing deceptive 5× weighting of substantiated proportion, with blue rings increasing over time" />
-          <figcaption>The proportion of substantiated (found illegal action by officer) dispositions of complaints increases dramatically over the years, and is far more than exonerated cases (officer's conduct fully legal), that means that in more and more of the cases, the board (appointed by NYC city council) found concrete evidence and determined that the officer used illegal means to enforce law.</figcaption>
+          <img src="img/for1.png" alt="Concentric ring plot showing deceptive 5× weighting of substantiated proportion, with blue rings increasing over time" />
+          <figcaption>This <strong> deceptive visuallization</strong> shows that the proportion of substantiated (found illegal action by officer) dispositions of complaints increases dramatically over the years, and is far more than exonerated cases (officer's conduct fully legal), that means that in more and more of the cases, the board (appointed by NYC city council) found concrete evidence and determined that the officer used illegal means to enforce law.</figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
           <ul>
             <li><strong>5-year Binning, Score: 1</strong> &mdash; Aggregating data into 5-year periods smooths year-to-year volatility and highlights long-term trends. This grouping is earnest, giving a clear overview without omitting any periods.</li>
             <li><strong>Deceptive Weighting, Score: -2</strong> &mdash; Multiplying substantiated counts by 5 before normalization makes the blue slices appear much larger than their true share. This is fully deceptive, as it alters the perceived ratio in favor of substantiation.</li>
-            <li><strong>Concentric Donuts, Score: -1</strong> &mdash; Using nested rings draws attention inward and conveys a sense of progression. While visually appealing, it makes direct area comparisons difficult, subtly amplifying the illusion of growth.</li>
+            <li><strong>Concentric Donuts, Score: -1.5</strong> &mdash; Using nested rings all starting at y-axis draws attention inward and conveys a sense of progression for "Substantiated" cases. It misdirects readers to think substantiated and exonerated are opposing categories.</li>
             <li><strong>Hiding Key Concept, Score: -1.5</strong> &mdash; Purposedly ignore the "Unsubstantiated" category, where there is not enough evidence to prove whether the police officer's action was legal or illegal (which consists of the majority). Instead, the chart only looks at officer guilty (blue) or unguility (orange). </li>
-            <li><strong>Actual % Labels, Score: 1</strong> &mdash; I overlaid the true substantiated percentages atop each wedge. This balances the deception in slice sizing with honest numeric annotation, earning a moderately earnest score.</li>
+            <li><strong>Actual % Labels, Score: 1</strong> &mdash; I overlaid the true substantiated percentages atop each wedge. This balances the deception in slice sizing with honest numeric annotation.</li>
           </ul>
       </section>
 
@@ -193,8 +193,9 @@
       <section>
         <h2>Final Reflection</h2>
 
-        <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
-      </section>
+        <p>In this project, I decided to explore how CCBR, a board assmebled by New York City Council to oversee complaints against NYPD, makes final decision on the complaints. One side should be persuasive that police misconduct are more strictly handled. The other side should be against this and argue that NYC shows no improvement. This proposition is made after careful examination of the dataset, which contains a large amount of data that have many information regarding the complainant and the police officer across 30 years. The only clear pattern is that number of complaints increase steadily, the pattern regarding complainant and officer profile is hard to assume. So my intuition led me to examine how were the complaints resolved. </p>
+        <p>In the for graph, I created a deceptive visualization that was inspired by a past example from lecture. I filtered out and cherry-picked all cases that are "Substantiated" and "Exonerated", ignoring the "Unsubstantiated" category. Then I used the concentric ring chart with unequal normalization which 5x the "Substantiated" category for exaggeration, and centered the starting point at X = 0, so "Substantiated" looks more like a progress bar that has positive connotation. The against plot uses a bar chart of proportion, but it considers Unsubstantiated cases where insufficient evidence ended the case together with exonerated case since the police officer did not receive any subsequent punishment. This shows that the proportion of cases that are substantiated remains considerably stable for 30 years. It even casts doubt on whether there had been a controlled proportion for substantiate police officer. Note that for both plots, the bins are set to be the same for better comparison. </p>
+        <p>In fact, both plots seems to be deceptive. The first plot is designed to be deceptive, but the second plot is also somewhat deceptive, because it also overlooks the fact that the number of complaints skyrocketed over the years. So I realized that it's impossible to have a perfectly fair visualization, and that there is no clear distinction between persuasive visualization and deceptive visualization. Whenever we are drawing a visualization based on a proposition, we are overlooking or have to give up certain context that can also explain for or against this situation. So for better "ethical" analysis and visualization, one should not deliberately violate any common sense design principles, such as distorted proportions, truncated axis, etc. and not drop any relevant data. To make an existing visualization more persuasive and less deceptive, design choices like clear annotations, thoughtful aggregations, and straightforward color encoding should be made. Therefore, the reader can have all the important information to draw a conclusion. </p>
     </main>
   </body>
 </html>
